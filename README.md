@@ -1,1 +1,3 @@
 # VintageComputing
+
+Getting back to my roots.... Apple ][ programming ..... then onto other vintage computers .....
