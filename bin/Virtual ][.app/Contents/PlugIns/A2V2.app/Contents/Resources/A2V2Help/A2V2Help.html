@@ -1,0 +1,581 @@
+<html>
+<head>
+   <TITLE>A2V2 Help</TITLE>
+   <META NAME="AppleTitle" CONTENT="A2V2 Help"><META NAME="AppleIcon" CONTENT="A2V2Help/help_icon.gif">
+</head>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><IMG SRC="AppIcon.jpg" WIDTH=128 HEIGHT=128></CENTER>
+<H1><CENTER>A2V2 - Apple&nbsp;II to Mac Disk Transfer</CENTER></H1>
+<CENTER>Copyright &copy; 2005-2018, Gerard Putter</CENTER>
+<H3><FONT COLOR="#990000">Contents</FONT></H3>
+<BLOCKQUOTE>
+	<A HREF="#Introduction">Introduction</A><BR>
+	<A HREF="#Acknowledgement">Acknowledgement</A><BR>
+	<A HREF="#WhatYouNeed">What do you need to use A2V2</A><BR>
+	<BLOCKQUOTE>
+		<A HREF="#WhatYouNeedMac">Macintosh</A><BR>
+		<A HREF="#WhatYouNeedAII">Apple&nbsp;II</A><BR>
+		<A HREF="#Connecting">Connecting the machines</A><BR>
+	</BLOCKQUOTE>
+	<A HREF="#Installation">Installation</A><BR>
+	<BLOCKQUOTE>
+		<A HREF="#InstallationMac">Macintosh</A><BR>
+		<A HREF="#InstallationAIIHardware">Apple&nbsp;II - hardware setup</A><BR>
+		<A HREF="#InstallationAIISoftware">Apple&nbsp;II - software setup</A><BR>
+	</BLOCKQUOTE>
+	<A HREF="#Transferring">Transferring disks</A><BR>
+	<BLOCKQUOTE>
+		<A HREF="#Theory">Different methods of disk transfer</A><BR>
+		<A HREF="#ConfigureADT">Configuring the ADT program on the Apple&nbsp;II</A><BR>
+		<A HREF="#SendingToMac">Sending a disk to the Mac</A><BR>
+		<A HREF="#SendingToAII">Sending a disk image to the Apple&nbsp;II</A><BR>
+		<A HREF="#SpecifyingFiles">Specifying file names</A><BR>
+		<A HREF="#Canceling">Canceling a disk transfer</A><BR>
+		<A HREF="#Limitations">Limitations</A><BR>
+	</BLOCKQUOTE>
+	<A HREF="#BundeledDisks">The bundled disk images</A><BR>
+	<A HREF="#ReleaseNotes">Release notes</A><BR>
+</BLOCKQUOTE>
+
+<H3><A NAME=Introduction></A><FONT COLOR="#990000">Introduction</FONT></H3>
+<P>The Apple&nbsp;II computer was originally released by Apple in 1977, and became very
+popular during the first half of the 1980's. Even today, many people keep the memory
+alive, by using an Apple&nbsp;II emulation program such as 
+<A HREF="https://www.virtualii.com">Virtual&nbsp;&#93;&#91;</A>.
+<BR>
+The programs and data for the Apple&nbsp;II were usually stored on 5.25" floppy disks (or "diskettes"). 
+These disks won't fit in modern day computers anymore, so emulation pograms cannot directly access them. 
+Instead, the emulators use disk images, which are files containing the data of one diskette each.
+</P>
+<P>
+A2V2 (which stands for Apple&nbsp;II - Virtual&nbsp;&#93;&#91;) is a macOS application that enables
+the conversion of actual Apple&nbsp;II diskettes to disk image files as well as the other way around:
+creating Apple&nbsp;II diskettes from disk image files. In order to do this, you need a
+working Apple&nbsp;II computer with a disk drive and a serial port.
+</P>
+
+<H3><A NAME=Acknowledgement></A><FONT COLOR="#990000">Acknowledgement</FONT></H3>
+<P>Part of A2V2 is based on the work of Paul Guertin, the author of ADT (Apple Disk Transfer).
+The ADT application, which is used on the Apple&nbsp;II during disk transfer, is an open source project and freely
+available via the Internet. For your convenience, version 2.1 of this program is bundled with A2V2 under
+the GNU General Public License (GPL), which means the ADT source code is included as well.</P>
+
+<H3><A NAME=WhatYouNeed></A><FONT COLOR="#990000">What do you need to use A2V2</FONT></H3>
+<P>To use the program, you need two computers: a Macintosh and an Apple&nbsp;II. The requirements for each
+are described below.
+
+<H4><A NAME=WhatYouNeedMac></A>Macintosh</H4>
+You'll use the Mac to run the A2V2 program, and to store the transferred disk image files.
+It must run macOS version 10.11 or better. The application doesn't require much disk space,
+not even for the converted diskettes (they are only 140 KB each).
+<BR>
+The Mac and the Apple II communicate with the serial RS-232 interface. This means that you need a USB-to-Serial
+adapter. You can easily find such adapters with <A HREF="https://duckduckgo.com/?q=Mac+USB+serial">
+DuckDuckGo</A> or <A HREF="https://www.google.com/search?q=Mac+USB+serial">Google</A>.
+<BR>
+Make sure to find a compatible driver for your adapter, which can run on your version of macOS. Finding and
+installing such a driver can be a bit challenging.
+You know that the installation was successful if A2V2 recognized the serial port(s) in its application preferences window.
+<TABLE BORDER=0>
+	<TR>
+		<TD VALIGN=bottom>
+		<P><IMG SRC="Adapter.jpg" WIDTH=300 HEIGHT=180></P>
+		</TD>
+	</TR>
+</TABLE>
+
+<H4><A NAME=WhatYouNeedAII></A>Apple&nbsp;II</H4>
+You'll use the Apple&nbsp;II to run the ADT program, which reads and writes the diskettes and communicates with
+the Mac through the serial cable.
+There are a number of different Apple&nbsp;II models. If you have an Apple&nbsp;&#93;&#91; or Apple&nbsp;&#93;&#91;+,
+it must have at least 48 KB of internal memory, and it must have Applesoft Basic in ROM.
+If you have an Apple&nbsp;//e or Apple&nbsp;//c, it automatically meets these requirements.
+<BR>
+<BR>
+Furthermore, you need a disk drive connected to the machine, able to access 16-sector 5.25" floppy disks, and you
+must have a serial card. A very popular serial card was the Apple Super Serial Card (SSC), and ADT has been tested to 
+work fine with it. Another option is the Apple Communications Card, which should also work, but is limited to very low
+baud rates and therefore not recommended.
+<P><IMG SRC="Super-serial.jpg" ALIGN=bottom></P>
+<BR>
+If you use an Apple&nbsp;//c you are all set, because it has an SSC-compatible serial connection and a
+5.25" disk drive built-in.
+<BR>
+<BR>
+The operating system you need on the Apple&nbsp;II is DOS 3.3, which always came with the machine. Other operating systems,
+such as ProDOS or CP/M, do not work with the ADT application, but you <I>will</I> be able to transfer disk images
+that have been formatted with those operating systems.
+
+<H4><A NAME=Connecting></A>Connecting the machines</H4>
+<P>
+To connect the two machines, you need a serial cable that fits the connectors at both ends.
+</P>
+<P>
+Note that when you connect two computers directly via a serial connection, you must use a modem eliminator, or null-modem cable.
+If you have an Apple Super Serial Card, the modem eliminator is built-in: make sure the jumper on the card 
+points to the word "Terminal" rather than "Modem".</P>
+<P><IMG SRC="SCC-modem-eliminator.jpg" ALIGN=bottom></P>
+
+<P>
+On the Apple&nbsp;//c, the best way to go is to use an Apple&nbsp;//c serial <I>printer</I> cable. This is basically a
+null-modem cable. Connect the cable to the Apple&nbsp;//c on built-in serial port no. 2. On top of that you might 
+need some adapter or gender changer your cable to connect to the Mac USB-to-Serial adapter. This picture gives
+an idea of the sort of components needed.
+</P>
+<TABLE BORDER=0>
+	<TR>
+		<TD VALIGN=bottom WIDTH=300>
+		<P><IMG SRC="IIcPrinterCable.jpg" WIDTH=200 HEIGHT=166></P>
+		</TD>
+		<TD VALIGN=bottom WIDTH=240>
+		<P><IMG SRC="DB9Fto25F.jpg" WIDTH=144 HEIGHT=125></P>
+		</TD>
+	</TR>
+</TABLE>
+
+<H3><A NAME=Installation></A><FONT COLOR="#990000">Installation</FONT></H3>
+<H4><A NAME=InstallationMac></A>Macintosh</H4>
+On the Mac, make sure the USB-to-Serial adapter is installed correctly. Also make sure you're running
+macOS version 10.11 or later.<BR>
+
+<H4><A NAME=InstallationAIIHardware></A>Apple&nbsp;II - hardware setup</H4>
+If you have an Apple&nbsp;//c, no special hardware setup is required; just make sure you connect the cable to serial port no. 2.
+<BR>
+<BR>
+If you have an Apple Communications Card, set it to 300 baud, 8 data bits, 1 stop bit and no parity.
+<BR>
+<BR>
+If you use an Apple&nbsp;II with a Super Serial Card, set the DIP switches on the card as shown in this picture. Note
+that some cards have an additional switch no. 8; this switch is a dummy and can be ignored.
+<P><IMG SRC="Super-Serial-Card-switches.jpg" ALIGN=bottom></P>
+
+Not all switches are equally important, because most options will be set from the software. This table shows 
+which switches are relevant:
+<TABLE BORDER=1>
+	<TR>
+		<TD BGCOLOR="#DDDDDD">
+		Switch
+		</TD>
+		<TD BGCOLOR="#DDDDDD">
+		Value
+		</TD>
+		<TD BGCOLOR="#DDDDDD">
+		Meaning
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		1-5 and 1-6
+		</TD>
+		<TD>
+		<CENTER>ON</CENTER>
+		</TD>
+		<TD>
+		Enable communications mode (as opposed to printer mode).
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		1-7
+		</TD>
+		<TD>
+		<CENTER>ON</CENTER>
+		</TD>
+		<TD>
+		Together with 2-7, enable CTS (as opposed to secondary CTS).
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		2-6
+		</TD>
+		<TD>
+		<CENTER>OFF</CENTER>
+		</TD>
+		<TD>
+		No interrupts
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		2-7
+		</TD>
+		<TD>
+		<CENTER>OFF</CENTER>
+		</TD>
+		<TD>
+		Together with 1-7, enable CTS (as opposed to secondary CTS).
+		</TD>
+	</TR>
+</TABLE>
+
+<H4><A NAME=InstallationAIISoftware></A>Apple&nbsp;II - software setup</H4>
+When the serial connection is in place, the first thing you have to do is make a disk on the Apple&nbsp;II that 
+contains the ADT software. This disk can then be used every time you want to work with A2V2. This step also 
+verifies that the serial connection works OK.
+<BR>
+To perform this step, open the A2V2 Preferences window on the Mac to select the serial port to which you connected
+the serial cable. If the port doesn't show up, stop the program, reconnect the USB-to-Serial
+adapter, and try again.
+<BR>
+You don't have to choose a specific baud rate setting. The software will automatically select the correct speed.
+<P><IMG SRC="Preferences.png" WIDTH=535 HEIGHT=241 ALIGN=bottom></P>
+Note that the serial ports in your configuration might have different names than the one shown in the picture.
+<BR>
+<BR>
+Next, click the button "Install Apple&nbsp;II software" in the A2V2 main window, and follow the directions
+on the screen. If all goes well, you'll see the Apple&nbsp;II screen come to life with the binary codes
+transmitted. This takes between 8 and 9 minutes.
+<P><IMG SRC="Upload.jpg" WIDTH=286 HEIGHT=198 ALIGN=bottom></P>
+After everything has been transmitted, the Mac sends a BSAVE command to the Apple&nbsp;II, causing
+it to save the ADT program on the disk in the current drive.
+
+<H3><A NAME=Transferring></A><FONT COLOR="#990000">Transferring disks</FONT></H3>
+Start this function by clicking "Transfer disk images" in the A2V2 main window, and follow the 
+directions on the screen. The main features of A2V2 are described below.
+
+<H4><A NAME=Theory></A>Methods of disk transfer and supported disk image formats</H4>
+
+<P>ADT supports different methods of disk transfer. They are all listed in the next table.</P>
+
+<TABLE BORDER=1>
+	<TR>
+		<TD BGCOLOR="#DDDDDD">
+		Method
+		</TD>
+		<TD BGCOLOR="#DDDDDD">
+		Direction
+		</TD>
+		<TD BGCOLOR="#DDDDDD">
+		Description
+		</TD>
+		<TD BGCOLOR="#DDDDDD">
+		Image format
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		Sector
+		</TD>
+		<TD>
+		Apple&nbsp;II to Mac
+		</TD>
+		<TD>
+		Creates a disk image from a diskette formatted by one of the main operating systems: DOS 3.3, ProDOS,
+		UCSD Pascal or CP/M. The diskette is supposed to contain 35 tracks of 16 sectors each. The resulting
+		disk image format is compatible with most Apple&nbsp;II emulators, including Virtual&nbsp;&#93;&#91;.
+		</TD>
+		<TD>
+		.dsk
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		Sector
+		</TD>
+		<TD>
+		Mac to Apple&nbsp;II
+		</TD>
+		<TD>
+		Copies a disk image to a diskette on the Apple II. <I>The diskette must have been formatted beforehand.</I>
+		The disk image is supposed to contain 35 tracks of 16 sectors each.
+		</TD>
+		<TD>
+		.dsk, .do, .po
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		Nibble
+		</TD>
+		<TD>
+		Apple&nbsp;II to Mac
+		</TD>
+		<TD>
+		Creates a disk image from a diskette that has 35 tracks, but does not comply with the standard sector
+		format. Some software manufacturers used this technique to make their distribution disks copy-protected; 
+		by using non-standard sectors, DOS programs were unable to make a copy. Nibble copy can also be used to 
+		copy DOS 3.2 diskettes (they have 13 sectors instead of 16).
+		<BR>
+		The nibble copy method only works with the Super Serial Card version of ADT, not with the
+		Apple Communications Card version. The resulting disk image format is compatible with most Apple&nbsp;II emulators,
+		including Virtual&nbsp;&#93;&#91;.
+		<BR>
+		It is recommended to test the result well, to make sure A2V2 analyzed the non-standard disk
+		patterns correctly.		
+		</TD>
+		<TD>
+		.nib
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		Half-track
+		</TD>
+		<TD>
+		Apple&nbsp;II to Mac
+		</TD>
+		<TD>
+		Create a disk image from a diskette that does not have the usual 35 tracks, but contains one or
+		more "half-tracks". Some software manufacturers used this technique to make their distribution disks
+		copy-protected.
+		<BR>
+		This transfer method only works with the Super Serial Card version of ADT, not with the
+		Apple Communications Card version. The resulting disk image format is compatible with Virtual&nbsp;&#93;&#91;.
+		<BR>
+		It is recommended to test the result well, to make sure A2V2 analyzed the non-standard disk
+		patterns correctly.		
+		</TD>
+		<TD>
+		.v2d
+		</TD>
+	</TR>
+</TABLE>
+
+<P>
+If you are sure a diskette is formatted in a standard way, always use a sector transfer.
+If you don't know how a diskette is formatted, first try to transfer it to the Mac
+with a sector transfer, and test the result. If that approach doesn't work, try a nibble transfer.
+If the result is still not satisfactory, try the half-track transfer. The latter two methods take
+considerably more time than the sector transfer, but there is a good chance the resulting disk image
+will work with the emulator.
+</P>
+<P>
+Note that disk drives existed that were capable of reading and writing 40 tracks per diskette instead of 35. 
+A2V2 and ADT do not support this format.
+</P>
+
+<H4><A NAME=ConfigureADT></A>Starting and configuring the ADT program on the Apple&nbsp;II</H4>
+To start the ADT program on the Apple&nbsp;II, boot from a a DOS 3.3 (or compatible) disk, 
+insert the disk that contains the ADT program, and issue the command "BRUN ADT".
+<BR>
+The program shows a screen like this:
+<P><IMG SRC="ADT.png"></P>
+<P>
+The top line shows the configuration of the ADT program: it expects the serial card in slot 2, will
+use 19200 baud as the transmission speed, and will use the disk in slot 6, drive 1. If any of these
+options does not match the configuration of your Apple&nbsp;II, you can easily modify them by typing "C",
+which gives this screen:
+</P>
+<P><IMG SRC="ADTConfig.png"></P>
+<P>
+Use the space bar or the up and down arrows to select an option, and use the left and right arrows to
+change a value. The escape key returns without saving; the return key saves the new values and takes you back
+to the main screen. The configuration options are explained in the next table.
+</P>
+<P>
+<TABLE BORDER=1>
+	<TR>
+		<TD BGCOLOR="#DDDDDD">
+		Option
+		</TD>
+		<TD BGCOLOR="#DDDDDD">
+		Description
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		Disk slot and drive
+		</TD>
+		<TD>
+		The slot and drive number of the disk drive ADT will use. On the Apple&nbsp;//c, use slot #6, 
+		and specify drive #1 to use the built-in drive,	or drive #2 for the external drive.
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		SSC Slot
+		</TD>
+		<TD>
+		The slot where the Super Serial Card is. On the Apple&nbsp;//c, use the default setting, slot #2.
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		SSC speed
+		</TD>
+		<TD>
+		Use the highest speed that works, and make sure it matches the speed configured on the Mac.
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		Read retries
+		</TD>
+		<TD>
+		Only applicable for sector transfer (not nibble or half-track transfer). It specifies the number of times
+		ADT will try to read a sector before giving up. The recommended value is 1 or 2. If
+		a particular disk gives trouble, try to increase the value.
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		Write retries
+		</TD>
+		<TD>
+		The number of times ADT will try to write a sector before giving up. The recommended value is 0; if a disk
+		gives trouble writing, simply don't use it!
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		Use checksums
+		</TD>
+		<TD>
+		Only applicable for sector transfer (not nibble or half-track transfer). DOS puts a checksum at the end of each
+		sector as an error-detection measure. If the checksum is wrong, it means the data is probably corrupt, resulting
+		in an I/O error. Setting this parameter to NO will skip this check: even if the checksum is wrong, the sector
+		will be processed. This may be of some help in transferring unreliable disks, but be aware the results are
+		unreliable as well. Thoroughly test the resulting disk image in your emulator!
+		<BR>
+        When you modify this parameter, ADT patches the copy of DOS in memory. If you're using a non-standard version of DOS,
+		the code that checks for checksum errors may have been moved to a different address. In that case, ADT will show the 
+		words "DO NOT CHANGE" next to the parameter. It will not actually prevent you from changing it, however.
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+		Enable sound
+		</TD>
+		<TD>
+		YES means ADT will beep when a transfer is finished, and on some other occasions. If this parameter is
+		set to NO, ADT will be totally silent.
+		</TD>
+	</TR>
+</TABLE>
+</P>
+<P>
+Note: configuration changes made this way are stored in memory only and not on disk. If you want to make the changes permanent,
+read the section "<A HREF="#BundeledDisks">The bundled disk images</A>".
+</P>
+
+<H4><A NAME=SendingToMac></A>Sending a disk to the Mac</H4>
+Insert the disk to be transferred in the configured drive of the Apple&nbsp;II. When you want to start a sector transfer, type "S"
+on the Apple&nbsp;II. To start a nibble transfer, type "N", and for a half-track transfer type "H". Next, specify a
+file name as explained under "<A HREF="#SpecifyingFiles">Specifying file names</A>". 
+<P>The time required is typically 1 to 2 minutes for a sector
+transfer, 3 to 5 minutes for a nibble transfer and up to 7 minutes for a half-track transfer.
+<P>
+Progress information is shown on the Apple&nbsp;II as well as on the Mac. On the Apple&nbsp;II, the ADT software
+shows progress characters per disk sector, or per track in case of a nibble / half-track transfer. 
+When a sector or track gets a "." it has been processed correctly. If a sector gets a "*", it could not be read. 
+In that case the transfer <I>does</I> continue, but the erroneous sector is sent as all zeros. The resulting disk
+image might not work correctly, and it is recommended to try a nibble transfer.
+<P>
+When a nibble or half-track transfer is complete, the Mac window shows a "reliability score", which is a number between
+0 and 1. It tells something about how well A2V2 was able to analyze the track data. A higher number is better.
+When the reliability is below 0.9, you have to be careful and test the resulting disk image thoroughly to see if 
+everything works.
+
+<H4><A NAME=SendingToAII></A>Sending a disk image to the Apple&nbsp;II</H4>
+Insert a formatted, not write-protected, disk in the configured drive. Type the "R" command on the Apple&nbsp;II, 
+and specify a file name as explained under "<A HREF="#SpecifyingFiles">Specifying file names</A>". The disk transfer typically takes 
+1 to 2 minutes. Progress information is shown on the Apple&nbsp;II as well as on the Mac.
+<P>
+The best way to format a disk on the Apple&nbsp;II is to boot with DOS 3.3, replace the boot disk with the disk 
+to be formatted, and at the Applesoft prompt issue the command "INIT HELLO". Or, if you want to format the disk
+in a specific drive, do something like "INIT HELLO,S6,D2".
+
+<H4><A NAME=SpecifyingFiles></A>Specifying file names</H4>
+Sending a disk to the Mac requires you to specify the file name of the resulting disk image. In the same way, when sending
+a disk image to the Apple&nbsp;II, you must enter the name of the disk image file to be transferred. 
+<BR>
+One way to enter the file name
+is by simply typing it on the Apple&nbsp;II when prompted to do so. Using this approach, the file is created or read in the A2V2
+work folder on the  Mac, which is always <CODE><B>~/Documents/Virtual&nbsp;&#93;&#91;/A2V2</B></CODE>.
+<BR>
+When the work folder doesn't exist yet, A2V2 creates it. Note that when you don't type a file extension, A2V2 appends the
+extension ".dsk", ".nib" or ".v2d", depending on the transfer method. A file name typed on the Apple&nbsp;II cannot be
+longer than 254 characters, and is not allowed to contain the character "/".
+<BR>
+Typing the "D" command on the Apple&nbsp;II shows an overview of the contents of the work folder.
+<P>
+The file names you can type on the Apple&nbsp;II are limited, because the machine won't let you type non-ASCII characters,
+and on some machines you cannot even type lowercase letters. To avoid this restriction, A2V2 supports a special
+feature: when you enter the file name "@" on the Apple&nbsp;II, the Mac will present a file open or file save
+panel, allowing you to specify the file in a Mac-like way.
+This method also allows you to work with files outside the working folder if you wish to.
+
+<H4><A NAME=Canceling></A>Canceling a disk transfer</H4>
+If you want to cancel an ongoing disk transfer, you must do so on both machines. On the Mac, close the "Transfer"
+window; on the Apple&nbsp;II press ESC. After canceling on both sides, you can re-open the Transfer window and continue
+with the next disk. When you cancel a transfer to the Mac, the file in progress is automatically deleted.
+
+<H3><A NAME=BundeledDisks></A><FONT COLOR="#990000">The bundled disk images</FONT></H3>
+<P>A2V2 comes with two disk images. They are:
+<UL>
+	<LI><B>ADT.dsk</B> - This disk contains the different flavors of the ADT program, and a utility program to
+	make a permanent configuration setup.</LI>
+	<LI><B>ADT Source.dsk</B> - This is for the technically inerested: it contains the full source code of
+	the ADT program, plus a utility program to list the source on the screen or to print it.</LI>
+</UL>
+</P>
+<P>
+To set up an ADT disk with your preferences, first make sure you can transfer a disk to the Apple&nbsp;II,
+as explained before. Then transfer the disk image "ADT.dsk" to the Apple&nbsp;II and boot from it.
+You'll see a welcome screen that looks like this:
+</P>
+<P><IMG SRC="ADTDisk1.jpg" WIDTH=286 HEIGHT=198 ALIGN=bottom></P>
+<P>
+The first time you use the disk, you must choose option 1, which will guide you through the setup. You
+must specify which ADT flavor you are going to use (Super Serial Card, Apple Communications Card, or Apple&nbsp;//c),
+and you can change any default settings to match your particular configuration.
+</P>
+<P><IMG SRC="ADTDisk2.jpg" WIDTH=286 HEIGHT=198 ALIGN=bottom></P>
+<P>The current value for each option is shown highlighted, and when you don't want to change it, just press
+the Return key. When you are finished, the program saves a customized ADT program on the disk, containing 
+the configuration parameters specified.
+<BR>
+The next time you boot from the disk, you can choose option 2, and go directy to your customized ADT program.
+</P>
+<P>
+The third option is for the technically interested. It allows you to inspect (and copy if you wish to) 
+the ADT source files. You don't need a real Apple&nbsp;II for this; it is actually more convenient to
+use Virtual&nbsp;&#93;&#91;. The source files are on the disk image "ADT Source.dsk", and the program will ask you
+to insert that disk. You are then asked to choose which file you want to list: the source of one of the
+ADT programs, or the GPL (the license file). You can display each file on the screen or print it.
+</P>
+<P><IMG SRC="ADTSource.jpg" WIDTH=286 HEIGHT=198 ALIGN=bottom></P>
+<P>
+The "print" option is the best choice if you want to have a good look at a file, because Virtual&nbsp;&#93;&#91;
+will produce a pdf file you can open with Adobe Reader or Apple Preview. 
+<BR
+>Printing also allows you to export the file:
+in Virtual&nbsp;&#93;&#91;, select "Print to Clipboard" from the Edit menu, then print the selected file. Afterwards
+go to a text editor and paste the results.
+<BR>
+Note that the Apple&nbsp;II takes a <I>long</I> time to read the text files. To speed up things a bit, the
+disk image contains a compiled Applesoft program, but to make it go really fast, choose "Maximum Speed" in
+the Machine menu of Virtual&nbsp;&#93;&#91;.
+</P>
+<H3><A NAME=ReleaseNotes></A><FONT COLOR="#990000">Release notes</FONT></H3>
+
+<H4><FONT COLOR="#990000">Version 2.3</FONT></H4>
+<UL>
+    <LI>The app now requires macOS 10.11 (El Capitan) or better.</LI>
+    <LI>The serial connection menu in the application preferences now also shows modem-type devices.</LI>
+</UL>
+
+<H4><FONT COLOR="#990000">Version 2.2.1</FONT></H4>
+<UL>
+    <LI>Fixed compatibility issue with OS X 10.10 (Yosemite).</LI>
+</UL>
+
+<H4><FONT COLOR="#990000">Version 2.2</FONT></H4>
+<UL>
+	<LI>Substantially improved nibble copy and half-track copy, resulting in much more reliable disk images.</LI>
+</UL>
+
+<H4><FONT COLOR="#990000">Version 2.1</FONT></H4>
+<UL>
+	<LI>Added option to transfer half-track disks.</LI>
+</UL>
+
+<H4><FONT COLOR="#990000">Version 2.0</FONT></H4>
+<UL>
+	<LI>Added option to transfer copy protected disks to the Macintosh (via a "nibble" copy).</LI>
+	<LI>Added a menu entry to quickly open the working folder.</LI>
+	<LI>Improved the configuration utilities on the included Apple II disk image.</LI>
+</UL>
+</body>
+</html>

@@ -1,0 +1,928 @@
+// VirtualII.scriptSuite
+
+/*
+Note I found this additional useful documentation in an OSX 10.2 release note.
+The following strings are now valid type names in script suites, and can be used as the value of the Type entry in any appropriate script suite dictionary:
+- NSNumber, as has always been the case. In AppleScript scripting dictionaries, it appears as the AppleScript integer type.
+- NSNumber<Bool>, as described above. Appears as boolean.
+- NSNumber<enumerationName>, as described above. Appears as an enumeration whose user-visible name depends on the script suite terminology.
+- NSNumber<Double>. Appears as real.
+- NSNumber<Float>. Appears as small real.
+- NSNumber<Int>. Appears as integer.
+- NSNumber<Long>. Appears as integer.
+- NSNumber<LongLong>. Appears as double integer.
+- NSNumber<Short>. Appears as small integer.
+- NSNumber<UnsignedInt>. Appears as unsigned integer.
+- NSNumber<UnsignedLong>. Appears as unsigned integer.
+*/
+
+{
+	"Name" = "Virtual ][";
+	AppleEventCode = "Vi][";
+
+    Commands =
+	{
+		Reset = 
+		{
+			AppleEventCode = "Rese";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIDocument";
+			};
+		};
+		Boot =
+		{
+			AppleEventCode = "Boot";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIDocument";
+			};
+		};
+		Freeze =
+		{
+			AppleEventCode = "Frez";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIDocument";
+			};
+		};
+		Unfreeze =
+		{
+			AppleEventCode = "UFrz";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIDocument";
+			};
+		};
+		Insert =
+		{
+			AppleEventCode = "Inst";
+			CommandClass = "VIIScriptInsert";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetDevice =
+				{
+					Type = "VIIDriveAS";
+					AppleEventCode = "InsD";
+					Optional = "NO";
+				};
+			};
+		}; // End Insert
+		InsertURL =
+		{
+			AppleEventCode = "IUrl";
+			CommandClass = "VIIScriptInsert";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetDevice =
+				{
+					Type = "VIIDriveAS";
+					AppleEventCode = "InsD";
+					Optional = "NO";
+				};
+			};
+		};
+		InsertBlank =
+		{
+			AppleEventCode = "InsB";
+			CommandClass = "VIIScriptInsert";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetDevice =
+				{
+					Type = "VIIDriveAS";
+					AppleEventCode = "InsD";
+					Optional = "NO";
+				};
+				DiskSize =
+				{
+					Type = "NSNumber<Short>";
+					AppleEventCode = "Dsiz";
+					Optional = "YES";		// Only applicable for OmniDisk
+				};
+			};
+		}; // End InsertBlank
+		Eject =
+		{
+			AppleEventCode = "Ejct";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIDeviceAS";
+			};
+		}; // End Eject
+		Play =
+		{
+			AppleEventCode = "PlaT";
+			CommandClass = "VIIScriptPlayRecord";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetRecorder =
+				{
+					Type = "VIICassetteRecorderAS";
+					AppleEventCode = "InsC";
+					Optional = "NO";
+				};
+			};
+		}; // End Play
+		Record =
+		{
+			AppleEventCode = "RecT";
+			CommandClass = "VIIScriptPlayRecord";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetRecorder =
+				{
+					Type = "VIICassetteRecorderAS";
+					AppleEventCode = "InsC";
+					Optional = "NO";
+				};
+			};
+		};
+		TypeText =
+		{
+			AppleEventCode = "TypT";
+			CommandClass = "VIIScriptTypeCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Type = "VIIDocument";
+					AppleEventCode = "TMac";
+					Optional = "YES";
+				};
+			};
+		};
+		TypeLine =
+		{
+			AppleEventCode = "TypL";
+			CommandClass = "VIIScriptTypeCommand";
+			UnnamedArgument =
+			{
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Type = "VIIDocument";
+					AppleEventCode = "TMac";
+					Optional = "YES";
+				};
+			};
+		};
+		TypeCtrl =
+		{
+			AppleEventCode = "TypC";
+			CommandClass = "VIIScriptTypeCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Type = "VIIDocument";
+					AppleEventCode = "TMac";
+					Optional = "YES";
+				};
+			};
+		};
+		TypeKey =
+		{
+			AppleEventCode = "TypK";
+			CommandClass = "VIIScriptTypeCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSNumber<SpecialKeys>";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Type = "VIIDocument";
+					AppleEventCode = "TMac";
+					Optional = "YES";
+				};
+			};
+		};
+		TypeOpenApple =
+		{
+			AppleEventCode = "TypO";
+			CommandClass = "VIIScriptTypeCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Type = "VIIDocument";
+					AppleEventCode = "TMac";
+					Optional = "YES";
+				};
+			};
+		};
+		TypeClosedApple =
+		{
+			AppleEventCode = "TypA";
+			CommandClass = "VIIScriptTypeCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "NSString";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Type = "VIIDocument";
+					AppleEventCode = "TMac";
+					Optional = "YES";
+				};
+			};
+		};
+		/*
+		LeaveRunning =
+		{
+			AppleEventCode = "CRun";
+			CommandClass = "VIIScriptLeaveRunningCommand";
+			Arguments =
+			{
+				TimePeriod =
+				{
+					Type = "NSNumber<Float>";
+					AppleEventCode = "TPer";
+					Optional = "NO";
+				};
+			};
+		};
+		*/
+		FormFeed =
+		{
+			AppleEventCode = "FFed";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIMatrixPrinterAS";
+			};
+		};
+		LineFeed =
+		{
+			AppleEventCode = "LFed";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIMatrixPrinterAS";
+			};
+		};
+		TearOff =
+		{
+			AppleEventCode = "Toff";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIMatrixPrinterAS";
+			};
+			Arguments =
+			{
+				SavePrintAs =
+				{
+					Type = NSString;
+					AppleEventCode = "SPas";
+					Optional = "YES";
+				};				
+			};
+		};
+		
+		// This is pretty wild: define my own variation on the Create command. The only difference
+		// with the real one is the command class: it is my own subclass of NSCreateCommand.
+		Create =
+		{
+            AppleEventClassCode = core; 
+            AppleEventCode = crel; 
+            Arguments = 
+			{
+                KeyDictionary = { AppleEventCode = prdt; Optional = YES; Type = NSDictionary; }; 
+                Location = { AppleEventCode = insh; Optional = YES; Type = NSPositionalSpecifier; }; 
+                ObjectClass = { AppleEventCode = kocl; Type = "NSNumber<TypeCode>"; }; 
+                ObjectData = { AppleEventCode = data; Optional = YES; Type = NSObject; }; 
+            }; 
+            CommandClass = VIICreateCommand; 
+            ResultAppleEventCode = "obj "; 
+            Type = NSScriptObjectSpecifier; 
+        };
+
+		SamePicture =
+		{
+			AppleEventCode = "SaPi";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIScreenPictureAS";
+			};
+			Arguments =
+			{
+				CompareFile = { AppleEventCode = "PiFi"; Optional = "NO"; Type = NSString; };
+				StartRow = { AppleEventCode = "SRow"; Optional = "YES"; Type = "NSNumber<Int>"; };
+				EndRow = { AppleEventCode = "ERow"; Optional = "YES"; Type = "NSNumber<Int>"; };
+				StartColumn = { AppleEventCode = "SCol"; Optional = "YES"; Type = "NSNumber<Int>"; };
+				EndColumn = { AppleEventCode = "ECol"; Optional = "YES"; Type = "NSNumber<Int>"; };
+			};
+            ResultAppleEventCode = "bool"; 
+            Type = "NSNumber<Bool>";
+		};
+		
+        // A more powerful command than SamePicture: this one actually waits until the picture appears
+        // on the virtual machine's screen.
+        WaitForScreen =
+        {
+			AppleEventCode = "WfSc";
+			CommandClass = "NSScriptCommand";
+            UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIDocument";
+			};
+			Arguments =
+			{
+				CompareFile = { AppleEventCode = "PiFi"; Optional = "NO"; Type = NSString; };
+				StartRow = { AppleEventCode = "SRow"; Optional = "YES"; Type = "NSNumber<Int>"; };
+				EndRow = { AppleEventCode = "ERow"; Optional = "YES"; Type = "NSNumber<Int>"; };
+				StartColumn = { AppleEventCode = "SCol"; Optional = "YES"; Type = "NSNumber<Int>"; };
+				EndColumn = { AppleEventCode = "ECol"; Optional = "YES"; Type = "NSNumber<Int>"; };
+			};
+        }; // End WaitForScreen
+
+		WriteScreen =
+		{
+			AppleEventCode = "WrSc";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIScreenPictureAS";
+			};
+			Arguments =
+			{
+				DestinationFile = 
+				{ 
+					AppleEventCode = "DeFi"; 
+					Optional = "NO"; 
+					Type = NSString;
+				};
+				PictureFormat =
+				{
+					AppleEventCode = "ImFo";
+					Optional = "YES";
+					Type = "NSNumber<PictureFormats>";
+				};
+			};
+		}; // End WriteScreen
+		
+		DumpMemory =
+		{
+			AppleEventCode = "DuMe";
+			CommandClass = "NSScriptCommand";
+			UnnamedArgument =
+			{
+				Optional = "NO";
+				Type = "VIIDocument";
+			};
+			Arguments =
+			{
+				MemoryBank =
+				{
+					AppleEventCode = "MeBa";
+					Optional = "YES";
+					Type = "NSNumber<Int>";
+				};
+				StartAddress =
+				{
+					AppleEventCode = "StAd";
+					Optional = "NO";
+					Type = "NSNumber<Int>";
+				};
+				Length =
+				{
+					AppleEventCode = "DuLe";
+					Optional = "NO";
+					Type = "NSNumber<Int>";
+				};
+				DestinationFile = 
+				{ 
+					AppleEventCode = "MeDe"; 
+					Optional = "NO"; 
+					Type = "NSString";
+				};
+			};
+            ResultAppleEventCode = "long"; 
+            Type = "NSNumber<Int>";
+		}; // End DumpMemory
+
+	}; // End Commands
+	
+	"Classes" =
+	{
+		// VIIApplication
+		"VIIApplication" = 
+		{
+			AppleEventCode = "capp";
+			Superclass = "NSCoreSuite.NSApplication";
+			ToManyRelationships =
+			{
+				"orderedDocuments" =
+				{
+					Type = "VIIDocument";
+					AppleEventCode = "Vdoc";
+				};
+			}; // End ToManyRelationships
+			Attributes =
+			{
+				soundEffectsEnabled =
+				{
+					Type = "NSNumber<Bool>";
+					AppleEventCode = "SfxE";
+				};
+				licenseType =
+				{
+					Type = "NSNumber<LicenseTypes>";
+					AppleEventCode = "VLic";
+					ReadOnly = "Yes";
+				};
+				diskfolder =
+				{
+					Type = "NSString";
+					AppleEventCode = "VDFo";
+					ReadOnly = "Yes";
+				};
+				hiresRenderingMode =
+				{
+					Type = "NSNumber<HiResRenderingTypes>";
+					AppleEventCode = "HRCo";
+				};
+			};
+		}; // End VIIApplication
+
+		// VIIDocument
+		"VIIDocument" =
+		{
+            AppleEventCode = "Vdoc";
+			Superclass = "NSCoreSuite.NSDocument";
+			ToManyRelationships =
+			{
+				"orderedDevices" =
+				{
+					Type = "VIIDeviceAS";
+					AppleEventCode = "Devi";
+					ReadOnly = "Yes";
+				};
+			};
+			Attributes =
+			{
+                speed =
+				{
+                    Type = "NSNumber<SpeedSettings>";
+                    AppleEventCode = "Spee";
+                };
+				monochromeScreen =
+				{
+					Type = "NSNumber<Bool>";
+                    AppleEventCode = "Mono";
+				};
+				softCapsLock =
+				{
+					Type = "NSNumber<Bool>";
+					AppleEventCode = "Scap";
+				};
+				tint =
+				{
+					Type = "NSColor";
+					AppleEventCode = "Tint";
+				};
+				scanlines =
+				{
+					Type = "NSNumber<Bool>";
+					AppleEventCode = "Scan";
+				};
+				speakerVolume =
+				{
+					Type = "NSNumber<Float>";
+					AppleEventCode = "Svol";
+				};
+				charSet =
+				{
+					Type = "NSNumber<CharacterSets>";
+					AppleEventCode = "CSet";
+				};
+				secondaryVideo =
+				{
+					Type = "NSNumber<Bool>";
+					AppleEventCode = "80CV";
+				};
+				textScreen =
+				{
+					Type = "VIIScreenTextAS";
+					AppleEventCode = "Tscr";
+					ReadOnly = "Yes";
+				};
+				compactTextScreen =
+				{
+					Type = "VIIScreenTextAS";
+					AppleEventCode = "Cscr";
+					ReadOnly = "Yes";
+				};
+				graphicsScreen =
+				{
+					Type = "VIIScreenPictureAS";
+					AppleEventCode = "Gscr";
+					ReadOnly = "Yes";
+				};
+				screenMode =
+				{
+					Type = "NSNumber<ScreenModes>";
+					AppleEventCode = "ScrM";
+					ReadOnly = "Yes";
+				};
+				computerType =
+				{
+					Type = "NSNumber<ComputerTypes>";
+					AppleEventCode = "Ctyp";
+					ReadOnly = "Yes";
+				};
+				printToClipboard =
+				{
+					Type = "NSNumber<Bool>";
+					AppleEventCode = "PrCb";
+				};
+				keyboardDelay =
+				{
+					Type = "NSNumber<Float>";
+					AppleEventCode = "KeDe";
+				};
+			}; // End Attributes
+			SupportedCommands =
+			{
+				// Note these are the object-first commands only
+				Reset = "resetAS:";
+				Boot = "restartAS:";
+				Freeze = "freezeAS:";
+				Unfreeze = "unfreezeAS:";
+				DumpMemory = "dumpMemoryAS:";
+                WaitForScreen = "waitForScreenAS:";
+			};
+		}; // End VIIDocument
+		
+		// VIIDeviceAS
+		VIIDeviceAS =
+		{
+            AppleEventCode = "Devi";
+			Superclass = "NSCoreSuite.AbstractObject";
+			Attributes =
+			{
+				// Note the name propery is REQUIRED when you want to identify an object
+				// by name (even though the name is also in the objectSpecifier).
+				name =
+				{
+					Type = "NSString";
+					AppleEventCode = "pnam";	// Required event code for "name"
+					ReadOnly = "Yes";
+				};
+				devicetype =
+				{
+					Type = "NSNumber<DeviceTypes>";
+					AppleEventCode = "DTyp";
+					ReadOnly = "Yes";
+				};
+                active =
+                {
+                    Type = "NSNumber<Bool>";
+                    AppleEventCode = "Dact";
+					ReadOnly = "Yes";
+                };
+			};
+			SupportedCommands =
+			{
+				// Declare this, in order to present the user with better error message than
+				// the Applescript program does, when the user tries to eject a printer or so.
+				Eject = "ejectAS:";
+			};
+		};
+		
+		// VIIDriveAS
+		VIIDriveAS =
+		{
+			AppleEventCode = "Ddrv";
+			Superclass = "VIIDeviceAS";
+			Attributes =
+			{
+				diskImage =
+				{
+					Type = "NSString";
+					AppleEventCode = "Dimg";
+					ReadOnly = "Yes";
+				};
+			};
+			SupportedCommands =
+			{
+				Eject = "ejectAS:";
+			};
+		};
+		
+		// VIICassetteRecorderAS
+		VIICassetteRecorderAS =
+		{
+			AppleEventCode = "CasR";
+			Superclass = "VIIDeviceAS";
+			Attributes =
+			{
+				tapeFile =
+				{
+					Type = "NSString";
+					AppleEventCode = "Tape";
+					ReadOnly = "Yes";
+				};
+			};
+			SupportedCommands =
+			{
+				Eject = "ejectAS:";
+			};
+		};
+		
+		VIIMatrixPrinterAS =
+		{
+			AppleEventCode = "MatP";
+			Superclass = "VIIDeviceAS";
+			Attributes =
+			{
+				autoLF =
+				{
+					Type = "NSNumber<Bool>";
+					AppleEventCode = "AuLF";
+				};
+				paperLength =
+				{
+					Type = "NSNumber<Int>";
+					AppleEventCode = "PaLn";
+				};
+				online =
+				{
+					Type = "NSNumber<Bool>";
+					AppleEventCode = "MpOl";
+				};
+			};
+			SupportedCommands =
+			{
+				FormFeed = "formFeedAS:";
+				LineFeed = "lineFeedAS:";
+				TearOff = "tearOffAS:";
+			};
+		};
+		VIISimplePrinterAS =
+		{
+			AppleEventCode = "SimP";
+			Superclass = "VIIDeviceAS";
+			Attributes =
+			{
+				printerFile =
+				{
+					Type = "NSString";
+					AppleEventCode = "PriF";
+					ReadOnly = "Yes";
+				};
+				online =
+				{
+					Type = "NSNumber<Bool>";
+					AppleEventCode = "SpOl";
+				};
+			};
+		};
+		// Note that the next three "subclasses" of VIIDocument are not actual Objective C classes.
+		// They are just identifiers for my subclass of NSCreateCommand, in order to know which 
+		// type of machine to create.
+		AppleIIMachine =
+		{
+			AppleEventCode = "Aii ";
+			Superclass = "VIIDocument";
+		};
+		AppleIIPlusMachine =
+		{
+			AppleEventCode = "AiiP";
+			Superclass = "VIIDocument";
+		};
+		AppleIIeMachine =
+		{
+			AppleEventCode = "Aiie";
+			Superclass = "VIIDocument";
+		};
+		/* VIIScreenTextAS is a class I tried to avoid. However, returning the screen text as just a
+		   NSTextSuite.NSTextStorage requires the user to deal with trailing return characters
+		   at the end of every line, and also requires him to access a line as a "paragraph".
+		   So I introduce a VIIScreenTextAS class; it should inherit from NSTextSuite.NSTextStorage,
+		   but for some reason the runtime system failed to recognize any inherited methods (???).
+		   The class has a collection of lines. The "contents" attribute gives the entire text as a
+		   NSTextSuite.NSTextStorage. */
+		VIIScreenTextAS =
+		{
+			AppleEventCode = "Stxt";
+			Superclass = "NSCoreSuite.AbstractObject";
+			ToManyRelationships =
+			{
+				"orderedLines" =
+				{
+					Type = "VIIScreenLineAS";
+					AppleEventCode = "Slin";
+					ReadOnly = "Yes";
+				};
+			};
+			Attributes =
+			{
+				contents =
+				{
+					Type = "NSTextSuite.NSTextStorage";
+					AppleEventCode = "Cont";
+					ReadOnly = "Yes";
+				};
+			};
+		};
+		VIIScreenLineAS =
+		{
+			// Actually, this IS an NSTextStorage; it is just there to assign
+			// it the name "line" in the terminology.
+			AppleEventCode = "Slin";
+			Superclass = "NSTextSuite.NSTextStorage";	// Not really a superclass.
+		};
+		VIIScreenPictureAS =
+		{
+			AppleEventCode = "SPic";
+			Superclass = "NSCoreSuite.AbstractObject";
+			SupportedCommands =
+			{
+				SamePicture = "samePicture:";
+				WriteScreen = "writeScreen:";
+			};
+		};
+	}; // End classes
+
+	"Enumerations" =
+	{
+		"SpeedSettings" =
+		{
+			AppleEventCode = "Spes";
+			Enumerators =
+			{
+				"RegularSpeed" = "Spe1";
+				"HighSpeed" = "Spe2";
+				"MaximumSpeed" = "Spe3";
+			};
+	    }; // End SpeedSettings
+		"CharacterSets" =
+		{
+			AppleEventCode = "CSts";
+			Enumerators =
+			{
+				"Latin" = "CSt1";
+				"LatinUppercase" = "CSt2";
+				"Greek" = "CSt3";
+				"German" = "CSt4";
+				"French" = "CSt5";
+				"British" = "CSt6";
+				"Italian" = "CSt7";
+                "Swedish" = "CSt8";
+                "Bulgarian" = "CSt9";
+				"Unknown" = "CStX";
+			};
+		}; // End CharacterSets
+		"DeviceTypes" =
+		{
+			AppleEventCode = "Dtps";
+			Enumerators =
+			{
+				"SimplePrinter" = "DT01";
+				"DiskII" = "DT02";
+				"Cassette" = "DT03";
+				"Omnidisk" = "DT04";
+				"Epson" = "DT05";
+				"ImageWriter" = "DT06";
+				"SerialDevice" = "DT07";
+			};
+		}; // End DeviceTypes
+		"SpecialKeys" =
+		{
+			AppleEventCode = "SpKe";
+			Enumerators =
+			{
+				"EscKey" = "SK01";
+				"LeftArrowKey" = "SK02";
+				"RightArrowKey" = "SK03";
+				"UpArrowKey" = "SK04";
+				"DownArrowKey" = "SK05";
+			};
+		};
+		"ScreenModes" =
+		{
+			AppleEventCode = "ScMs";
+			Enumerators =
+			{
+				"AllText" = "SM01";
+				"AllLoRes" = "SM02";
+				"AllHiRes" = "SM03";
+				"MixedTextLoRes" = "SM04";
+				"MixedTextHiRes" = "SM05";
+				"AllDoubleLoRes" = "SM06";
+				"AllDoubleHiRes" = "SM07";
+				"MixedTextDoubleLoRes" = "SM08";
+				"MixedTextDoubleHiRes" = "SM09";
+				"All80ColumnText" = "SM10";
+			};
+		};
+		"ComputerTypes" =
+		{
+			AppleEventCode = "Ctps";
+			Enumerators =
+			{
+				"AppleIIComputer" = "CT01";
+				"AppleIIPlusComputer" = "CT02";
+				"AppleIIeComputer" = "CT03";
+			};
+		};
+		"LicenseTypes" =
+		{
+			AppleEventCode = "Ltps";
+			Enumerators =
+			{
+				"Evaluation" = "LT01";
+				"LimitedLicense" = "LT02";
+				"FullLicense" = "LT03";
+			};
+		};
+		"PictureFormats" =
+		{
+			AppleEventCode = "PiFs";
+			Enumerators =
+			{
+				"TIFF" = "PF01";
+				"PNG" = "PF02";
+			};
+		};
+        "HiResRenderingTypes" =
+        {
+            AppleEventCode = "HiRn";
+			Enumerators =
+            {
+                "HiResNTSC" = "HRNT";
+                "HiResRGB" = "HRGB";
+            };
+        };
+    }; // End Enumerations
+
+	UsedFeatures = (UnnamedArguments);
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<schema version="1.0" xmlns="http://www.apple.com/metadata"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://www.apple.com/metadata file:///System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Resources/MetadataSchema.xsd">
+    <note>
+    Custom attributes that this metadata importer supports.
+	Other types	are CFNumber, CFDate, CFBoolean and CFData.		      
+    </note>
+    <attributes>
+		<!-- the file name is multi-valued because one document potentially (and probably) contains multiple files -->
+		<attribute name="nl_xs4all_gp_spotlightii_appleiifilename" multivalued="true" type="CFString"/>
+		<attribute name="nl_xs4all_gp_spotlightii_filesystemtype" multivalued="false" type="CFString"/>
+        <attribute name="nl_xs4all_gp_spotlightii_title" multivalued="false" type="CFString"/>
+        <attribute name="nl_xs4all_gp_spotlightii_publisher" multivalued="false" type="CFString"/>
+        <attribute name="nl_xs4all_gp_spotlightii_othermetadata" multivalued="true" type="CFString"/>
+        <attribute name="virtualii_md_wozversion" multivalued="false" type="CFString"/>
+    </attributes>
+
+    <types>
+        <type name="nl.xs4all.gp.virtualii.disk">
+            <allattrs>
+				nl_xs4all_gp_spotlightii_appleiifilename
+				nl_xs4all_gp_spotlightii_filesystemtype
+            </allattrs>
+            <displayattrs>
+				<!-- It appears showing the key is confusing and suppresses other, more useful keys. -->
+				<!-- nl_xs4all_gp_spotlightii_appleiifilename -->
+				nl_xs4all_gp_spotlightii_filesystemtype
+            </displayattrs>
+        </type>
+        <type name="nl.xs4all.gp.virtualii.wozdisk">
+            <!-- Equivalent of com.applesaucefdc.woz -->
+            <allattrs>
+                nl_xs4all_gp_spotlightii_appleiifilename
+                nl_xs4all_gp_spotlightii_filesystemtype
+                virtualii_md_wozversion
+                nl_xs4all_gp_spotlightii_title
+                nl_xs4all_gp_spotlightii_publisher
+                nl_xs4all_gp_spotlightii_othermetadata
+            </allattrs>
+            <displayattrs>
+                nl_xs4all_gp_spotlightii_filesystemtype
+                virtualii_md_wozversion
+                nl_xs4all_gp_spotlightii_title
+                nl_xs4all_gp_spotlightii_publisher
+            </displayattrs>
+        </type>
+        <type name="com.applesaucefdc.woz">
+            <!-- Equivalent of nl.xs4all.gp.virtualii.wozdisk -->
+            <allattrs>
+                nl_xs4all_gp_spotlightii_appleiifilename
+                nl_xs4all_gp_spotlightii_filesystemtype
+                virtualii_md_wozversion
+                nl_xs4all_gp_spotlightii_title
+                nl_xs4all_gp_spotlightii_publisher
+                nl_xs4all_gp_spotlightii_othermetadata
+            </allattrs>
+            <displayattrs>
+                nl_xs4all_gp_spotlightii_filesystemtype
+                virtualii_md_wozversion
+                nl_xs4all_gp_spotlightii_title
+                nl_xs4all_gp_spotlightii_publisher
+            </displayattrs>
+        </type>
+       <type name="nl.xs4all.gp.virtualii.nibdisk">
+            <allattrs>
+                nl_xs4all_gp_spotlightii_filesystemtype
+            </allattrs>
+            <displayattrs>
+                nl_xs4all_gp_spotlightii_filesystemtype
+            </displayattrs>
+        </type>
+        <type name="nl.xs4all.gp.virtualii.viidisk">
+            <allattrs>
+                nl_xs4all_gp_spotlightii_filesystemtype
+            </allattrs>
+            <displayattrs>
+                nl_xs4all_gp_spotlightii_filesystemtype
+            </displayattrs>
+        </type>
+        <type name="nl.xs4all.gp.virtualii.harddisk1">
+            <allattrs>
+				nl_xs4all_gp_spotlightii_appleiifilename
+				nl_xs4all_gp_spotlightii_filesystemtype
+            </allattrs>
+            <displayattrs>
+				nl_xs4all_gp_spotlightii_filesystemtype
+            </displayattrs>
+        </type>
+        <type name="nl.xs4all.gp.virtualii.harddisk2">
+            <allattrs>
+				nl_xs4all_gp_spotlightii_appleiifilename
+				nl_xs4all_gp_spotlightii_filesystemtype
+            </allattrs>
+            <displayattrs>
+				nl_xs4all_gp_spotlightii_filesystemtype
+            </displayattrs>
+        </type>
+        <type name="org.gnu.gnu-zip-archive">
+            <allattrs>
+				nl_xs4all_gp_spotlightii_appleiifilename
+				nl_xs4all_gp_spotlightii_filesystemtype
+            </allattrs>
+            <displayattrs>
+				nl_xs4all_gp_spotlightii_filesystemtype
+            </displayattrs>
+        </type>
+    </types>
+</schema>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <identifier>a2_asimov_bezare_hr</identifier>
+  <description>Southwestern Data Systems recently came into the possession of this software product from the (Alien Sybmbols) Software Company.  Judging from the programming style, it was our suspicion that the original game was the work of Nhoj Dranseb, a leading programmer of the Bezardian planetary system.  Intensive reformatting efforts on our part have produced a disk which is compatible with standard Apple computers, despite the program's original existence on Bezardian computers.
+
+Although it was immediately obvious that the program was a unique Hi-Res arcade type game, no translation of the game rules accompanied the package.
+
+Rather than keep this terrific item to ourselves, we knew that the people who would enjoy this game would be more than capable of meeting the challenge in translating the enclosed instructions, provided in their original alien text.  In fact, we suspect that certain strategic advantages may be discovered by the more persistent investigators of this extraterrestrial culture.
+
+Earthly users should not be offended by noticing that the aliens have understandably placed themselves in the defensive roles, with the "earthers" depicted as the enemy.</description>
+  <emulator>apple2e</emulator>
+  <emulator_ext>dsk</emulator_ext>
+  <language>eng</language>
+  <mediatype>software</mediatype>
+  <scanner>Internet Archive Python library 0.6.5</scanner>
+  <title>Bezare</title>
+  <publicdate>2014-06-24 02:27:14</publicdate>
+  <uploader>jscott@archive.org</uploader>
+  <addeddate>2014-06-24 02:27:14</addeddate>
+  <creator>Southwestern Data Systems</creator>
+  <date>1982</date>
+  <year>1982</year>
+  <subject>Apple II games; Action games</subject>
+  <named-persons>John Beznard</named-persons>
+  <notes>&lt;font face="courier"&gt;&lt;b&gt;Disk info for bezare_hr.dsk:&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;File Name: a2_asimov_bezare_hr/bezare_hr.dsk
+Disk Name: DISK VOLUME #254
+Physical Size (bytes): 143360
+Free Space (bytes): 58368
+Used Space (bytes): 84992
+Physical Size (KB): 140
+Free Space (KB): 57
+Used Space (KB): 83
+Archive Order: DOS
+Disk Format: DOS 3.3
+Total Sectors: 560
+Free Sectors: 228
+Used Sectors: 332
+Tracks On Disk: 35
+Sectors On Disk: 16&lt;br /&gt;&lt;br /&gt;&lt;/font&gt; &lt;font face="courier"&gt;&lt;b&gt;Disk directory for bezare_hr.dsk:&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;a2_asimov_bezare_hr/bezare_hr.dsk DISK VOLUME #254
+* A 002 HELLO 
+* B 002 LOADER 
+* I 006 APPLESOFT 
+* B 050 FPBASIC 
+DOS 3.3 format; 58,368 bytes free; 84,992 bytes used.&lt;/font&gt; &lt;br /&gt;&lt;br /&gt;&lt;font face="courier"&gt;&lt;b&gt;Text found in bezare_hr.dsk/APPLESOFT.int:&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;10 REM  -- DOS 3.3 HELLO
+20 REM 
+30 TEXT :PRINT 
+40 CALL -936
+50 VTAB 12:PRINT "LOADING PROGRAM...  PLEASE WAIT."
+70 REM 
+80 REM --POKE LANGUAGE CARD FINDER
+90  POKE 768,0: POKE 769,173: POKE 770,0: POKE 771,224: POKE 772,72: POKE 773,173: POKE 774,129: POKE 775,192: POKE 776,104:
+95  POKE 777,72: POKE 778,205: POKE 779,0: POKE 780,224: POKE 781,208: POKE 782,35: POKE 783,173: POKE 784,131: POKE 785,192:
+100  POKE 786,173: POKE 787,131: POKE 788,192: POKE 789,169: POKE 790,165: POKE 791,141: POKE 792,0: POKE 793,208: POKE 794,205:
+105  POKE 795,0: POKE 796,208: POKE 797,208: POKE 798,19: POKE 799,74: POKE 800,141: POKE 801,0: POKE 802,208: POKE 803,205:
+110  POKE 804,0: POKE 805,208: POKE 806,208: POKE 807,10: POKE 808,173: POKE 809,129: POKE 810,192: POKE 811,173: POKE 812,129:
+115  POKE 813,192: POKE 814,169: POKE 815,1: POKE 816,208: POKE 817,2: POKE 818,169: POKE 819,0: POKE 820,141: POKE 821,0:
+120  POKE 822,3: POKE 823,104: POKE 824,205: POKE 825,0: POKE 826,224: POKE 827,240: POKE 828,3: POKE 829,173: POKE 830,128:
+125  POKE 831,192: POKE 832,96:
+160 CALL 769
+170 IF  PEEK (768)&lt;&gt;1 THEN 260
+180 REM 
+190 REM --IF THERE, LOAD APPLESOFT
+200 REM 
+220 PRINT "BLOAD FPBASIC,A$D000"
+230 REM --WRITE PROTECT THE CARD
+240 A= PEEK (-16254):REM  $C082
+250 GOTO 310
+260 REM 
+270 REM --NO CARD OR CAN'T RELOAD
+280 REM 
+290 IF  PEEK (768)=0 THEN 310
+300 PRINT "...LANGUAGE CARD CANNOT BE RELOADED":PRINT "   UNTIL THE SYSTEM IS REBOOTED..."
+310 PRINT "RUN HELLO"&lt;/font&gt; &lt;br /&gt;&lt;br /&gt;&lt;font face="courier"&gt;&lt;b&gt;Text found in bezare_hr.dsk/HELLO.bas:&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;2  POKE 1010,64: POKE 1011,29: POKE 1012,184
+5  HOME : VTAB 10: HTAB 10
+10  PRINT "BROUGHT TO EARTH"
+15  PRINT 
+20  PRINT "    BY SOUTHWESTERN DATA SYSTEMS"
+25  PRINT 
+30  PRINT "SOFTWARE PURVEYORS TO THE MILKY WAY"
+35  PRINT 
+40  PRINT "        (C) COPYRIGHT 1982"
+50  PRINT  CHR$(4);"BRUN LOADER"&lt;/font&gt;</notes>
+  <collection>softwarelibrary_apple_games</collection>
+  <backup_location>ia905809_19</backup_location>
+  <collection>softwarelibrary_apple</collection>
+  <collection>softwarelibrary</collection>
+</metadata>

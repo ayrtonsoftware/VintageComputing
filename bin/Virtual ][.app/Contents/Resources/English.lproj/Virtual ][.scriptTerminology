@@ -1,0 +1,799 @@
+// VirtualII.scriptTerminology
+
+{
+    Name = "Virtual ][ suite";
+    Description = "Virtual ][ specific classes.";
+
+	Commands =
+	{
+		Reset =
+		{
+			Name = "reset";
+			Description = "Like pressing the Apple II \"reset\" key.";
+			UnnamedArgument =
+			{
+				Description = "The virtual machine to be reset.";
+			};
+		};
+		Boot =
+		{
+			Name = "restart";
+			Description = "Cold boots the virtual machine.";
+			UnnamedArgument =
+			{
+				Description = "The virtual machine to restart.";
+			};
+		};
+		Freeze =
+		{
+			Name = "freeze";
+			Description = "Pauses the virtual machine.";
+			UnnamedArgument =
+			{
+				Description = "The virtual machine to be frozen.";
+			};
+		};
+		Unfreeze =
+		{
+			Name = "unfreeze";
+			Description = "Resumes a previously frozen virtual machine.";
+			UnnamedArgument =
+			{
+				Description = "The virtual machine to unfreeze.";
+			};
+		};
+		Insert =
+		{
+			Name = "insert";
+			Description = "Insert a disk image or Macintosh folder into a disk drive.";
+			UnnamedArgument =
+			{
+				Description = "The POSIX path of the file or folder to be inserted.";
+			};
+			Arguments =
+			{
+				TargetDevice =
+				{
+					Name = "into";
+					Description = "The disk drive into which the disk is to be inserted.";
+				};
+			};
+		};
+		InsertURL =
+		{
+			Name = "insert URL";
+			Description = "Download and insert a diskette image. Any changes on the disk will be lost when you eject it.";
+			UnnamedArgument =
+			{
+				Description = "The URL to be inserted. It can point to a floppy disk image or a gzipped floppy disk image (with extension .gz).";
+			};
+			Arguments =
+			{
+				TargetDevice =
+				{
+					Name = "into";
+					Description = "The disk drive into which the disk is to be inserted.";
+				};
+			};
+		};
+		InsertBlank =
+		{
+			Name = "insert blank";
+			Description = "Create a new disk image file and insert it into a disk drive.";
+			UnnamedArgument =
+			{
+				Description = "The POSIX path of the file to be created. The file name extension will be added automatically.";
+			};
+			Arguments =
+			{
+				TargetDevice =
+				{
+					Name = "into";
+					Description = "The disk drive into which the disk is to be inserted.";
+				};
+				DiskSize =
+				{
+					Name = "size";
+					Description = "For OmniDisk only: the size of the new disk in KB. Default is 32767 (the maximum).";
+				};
+			};
+		};
+		Eject =
+		{
+			Name = "eject";
+			Description = "Remove a disk or cassette tape from a device.";
+			UnnamedArgument =
+			{
+				Description = "The device to eject.";
+			};
+		};
+		Play = 
+		{
+			Name = "play";
+			Description = "Play a cassette tape.";
+			UnnamedArgument =
+			{
+				Description = "The POSIX path of the tape file to be played.";
+			};
+			Arguments =
+			{
+				TargetRecorder =
+				{
+					Name = "on";
+					Description = "The cassette recorder to play the tape.";
+				};
+			};
+		};
+		Record =
+		{
+			Name = "record";
+			Description = "Record a new cassette tape.";
+			UnnamedArgument =
+			{
+				Description = "The POSIX path of the file to be created. The file name extension will be added automatically.";
+			};
+			Arguments =
+			{
+				TargetRecorder =
+				{
+					Name = "on";
+					Description = "The cassette recorder to record the tape.";
+				};
+			};
+		};
+		TypeText =
+		{
+			Name = "type text";
+			Description = "Type text on the virtual machine.";
+			UnnamedArgument =
+			{
+				Description = "The characters to type. Non-ASCII characters are ignored.";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Name = "on";
+					Description = "The machine to receive the keystrokes. Default is the front machine.";
+				};
+			};
+		};
+		TypeLine =
+		{
+			Name = "type line";
+			Description = "Type text on the virtual machine, followed by the \"return\" key.";
+			UnnamedArgument =
+			{
+				Description = "The characters to type. Non-ASCII characters are ignored. Use an empty string (\"\") to type just a \"return\".";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Name = "on";
+					Description = "The machine to receive the keystrokes. Default is the front machine.";
+				};
+			};
+		};
+		TypeCtrl =
+		{
+			Name = "type ctrl";
+			Description = "Type one or more characters with the \"ctrl\" key held down.";
+			UnnamedArgument =
+			{
+				Description = "The characters to be combined with \"ctrl\". Non-ASCII characters are ignored.";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Name = "on";
+					Description = "The machine to receive the keystrokes. Default is the front machine.";
+				};
+			};
+		};
+		TypeKey =
+		{
+			Name = "type key";
+			Description = "Type a special key.";
+			UnnamedArgument =
+			{
+				Description = "The special key to type.";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Name = "on";
+					Description = "The machine to receive the keystroke. Default is the front machine.";
+				};
+			};
+		};
+		TypeOpenApple =
+		{
+			Name = "type open Apple";
+			Description = "Type one or more characters with the \"open Apple\" key held down.";
+			UnnamedArgument =
+			{
+				Description = "The characters to be combined with \"open Apple\". Non-ASCII characters are ignored.";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Name = "on";
+					Description = "The machine to receive the keystrokes. Default is the front machine.";
+				};
+			};
+		};
+		TypeClosedApple =
+		{
+			Name = "type solid Apple";
+			Description = "Type one or more characters with the \"solid Apple\" key held down.";
+			UnnamedArgument =
+			{
+				Description = "The characters to be combined with \"solid Apple\". Non-ASCII characters are ignored.";
+			};
+			Arguments =
+			{
+				TargetMachine =
+				{
+					Name = "on";
+					Description = "The machine to receive the keystrokes. Default is the front machine.";
+				};
+			};
+		};
+		/*
+		LeaveRunning =
+		{
+			Name = "leave running";
+			Description = "Let the script wait some time while Virtual ][ continues running. This is useful for inspecting the screen after a time interval.";
+			Arguments =
+			{
+				TimePeriod =
+				{
+					Name = "with duration";
+					Description = "The number of seconds to wait.";
+				};
+			};
+		};
+		*/
+		FormFeed =
+		{
+			Name = "formfeed";
+			Description = "Press the printer's \"Form Feed\" button so it will skip to the start of the next page.";
+			UnnamedArgument =
+			{
+				Description = "The matrix printer to receive the form feed.";
+			};
+		};
+		LineFeed =
+		{
+			Name = "linefeed";
+			Description = "Press the printer's \"Line Feed\" button so it will skip one line.";
+			UnnamedArgument =
+			{
+				Description = "The matrix printer to receive the line feed.";
+			};
+		};
+		TearOff =
+		{
+			Name = "tear off paper";
+			Description = "Tear off the fanfold paper from the matrix printer, and optionally save it as a PDF file.";
+			UnnamedArgument =
+			{
+				Description = "The matrix printer that produced the printed output.";
+			};
+			Arguments =
+			{
+				SavePrintAs =
+				{
+					Name = "save as";
+					Description = "The POSIX path of the PDF file to be created. The \"pdf\" extension will be added automatically. When you omit this argument, the output is lost.";
+				};
+			};
+		};
+
+		SamePicture =
+		{
+			Name = "same picture";
+			Description = "Tests whether the picture on the screen is the same as a picture stored in a file.";
+			UnnamedArgument =
+			{
+				Description = "The screen picture to be compared. Typically the \"screen picture\" property of the machine object.";
+			};
+			Arguments =
+			{
+				CompareFile =
+				{
+					Name = "as imagefile";
+					Description = "The POSIX path of the file with the screen to compare to. Must have been created with \"Export Screen Picture\" in the File menu, or with the \"snap\" Applescript command.";
+				};
+				StartRow =
+				{
+					Name = "from row";
+					Description = "The top row number of the area to check. Default is 1 (the top row of the picture).";
+				};
+				EndRow = 
+				{
+					Name = "to row";
+					Description = "The bottom row number of the area to check. Must be >= \"from row\". Default is 192 (the bottom row of the picture).";
+				};
+				StartColumn =
+				{
+					Name = "from column";
+					Description = "The left column number of the area to check. Default is 1 (the leftmost column of the picture).";
+				};
+				EndColumn =
+				{
+					Name = "to column";
+					Description = "The right column number of the area to check. Must be >= \"from column\". Default is 280 (the rightmost column of the picture).";
+				};
+			};
+		};
+		
+		WaitForScreen =
+		{
+			Name = "waiting until screen";
+			Description = "Suspend the script until the screen of the virtual machine is the same as a picture stored in a file. Note that the command checks the screen only once every second.";
+			UnnamedArgument =
+			{
+				Description = "The virtual machine to wait for.";
+			};
+			Arguments =
+			{
+				CompareFile =
+				{
+					Name = "equals imagefile";
+					Description = "The POSIX path of the file with the screen to wait for. Must have been created with \"Export Screen Picture\" in the File menu, or with the \"snap\" Applescript command.";
+				};
+				StartRow =
+				{
+					Name = "from row";
+					Description = "The top row number of the area to check. Default is 1 (the top row of the picture).";
+				};
+				EndRow = 
+				{
+					Name = "to row";
+					Description = "The bottom row number of the area to check. Must be >= \"from row\". Default is 192 (the bottom row of the picture).";
+				};
+				StartColumn =
+				{
+					Name = "from column";
+					Description = "The left column number of the area to check. Default is 1 (the leftmost column of the picture).";
+				};
+				EndColumn =
+				{
+					Name = "to column";
+					Description = "The right column number of the area to check. Must be >= \"from column\". Default is 280 (the rightmost column of the picture).";
+				};
+			};
+		};
+
+		WriteScreen =
+		{
+			Name = "snap";
+			Description = "Saves a screen picture as a png or tiff file.";
+			UnnamedArgument =
+			{
+				Description = "The screen picture to be saved. Typically the \"screen picture\" property of the machine object.";
+			};
+			Arguments =
+			{
+				DestinationFile = 
+				{
+					Name = "to";
+					Description = "The POSIX path of the file to write. The file extension (png / tiff) is automatically appended if necessary. An existing file with the same name will be overwritten!";
+				};
+				PictureFormat =
+				{
+					Name = "format";
+					Description = "The picture format. Default is png.";
+				};
+			};
+		};
+
+
+		DumpMemory =
+		{
+			Name = "dump memory";
+			Description = "Dumps a range of Apple II memory into a file. Returns the number of bytes written.";
+			UnnamedArgument =
+			{
+				Description = "The virtual machine to be dumped.";
+			};
+			Arguments =
+			{
+				MemoryBank =
+				{
+					Name = "bank";
+					Description = "The zero-based memory bank number. Default is to use the current bank of each memory page involved.";
+				};
+				StartAddress =
+				{
+					Name = "address";
+					Description = "The starting address, in the range 0 to 49151 (hexadecimal $0000 to $BFFF).";
+				};
+				Length =
+				{
+					Name = "length";
+					Description = "The number of bytes to be dumped. The actual length is constrained to the memory actually installed (up to $BFFF).";
+				};
+				DestinationFile = 
+				{ 
+					Name = "into"; 
+					Description = "The POSIX path of the file to write. An existing file with the same name will be overwritten!"; 
+				};
+			};
+		}; // End DumpMemory
+
+
+		// Because I defined my own "Create" command, I also have to add this terminology,
+		// otherwise the application will crash in OSX Jaguar. This is a literal copy from
+		// the NSCoreSuite definition.
+        Create = {
+            Arguments = {
+                KeyDictionary = {
+                    Description = "The initial values for properties of the object."; 
+                    Name = "with properties";
+                }; 
+                Location = {Description = "The location at which to insert the object."; Name = at; }; 
+                ObjectClass = {Description = "The class of the new object."; Name = new; }; 
+                ObjectData = {Description = "The initial data for the object."; Name = "with data"; }; 
+            }; 
+            Description = "Make a new object."; 
+            Name = make; 
+        }; 
+	}; // End Commands
+
+    "Classes" =
+	{
+		// VIIApplication
+        "VIIApplication" =
+		{
+            Name = "application";
+            PluralName = "applications";
+            Description = "Virtual ]['s top level scripting object.";
+			Attributes =
+			{
+				soundEffectsEnabled =
+				{
+					Name = "sound effects";
+					Description = "Set this to false to temporarily disable the sound effects of the disk and printer.";
+				};
+				licenseType =
+				{
+					Name = "license";
+					Description = "The type of license";
+				};
+				diskfolder =
+				{
+					Name = "disk folder";
+					Description = "The POSIX path of the folder you chose as \"favorite disk folder\" in the application preferences.";
+				};
+				hiresRenderingMode =
+				{
+					Name = "highres style";
+					Description = "The method used for rendering high resolution color graphics.";
+				};
+			}; // End Attributes
+        }; // End VIIApplication
+		
+		// VIIDocument
+		"VIIDocument" =
+		{
+            Name = "machine";
+            PluralName = "machines";
+            Description = "A virtual machine.";
+            Attributes =
+			{
+                speed =
+				{
+                    Name = "speed";
+                    Description = "The speed of the virtual machine.";
+                };
+				monochromeScreen =
+				{
+                    Name = "monochrome screen";
+                    Description = "Whether or not the screen is monochrome.";
+				};
+				softCapsLock = 
+				{
+					Name = "caps lock";
+					Description = "When true, characters typed are converted to uppercase.";
+				};
+				tint =
+				{
+					Name = "tint";
+					Description = "The color of the pixels on the monochrome screen.";
+				};
+				scanlines =
+				{
+					Name = "scanlines";
+					Description = "Whether or not the horizontal scanlines are visible.";
+				};
+				speakerVolume =
+				{
+					Name = "speaker volume";
+					Description = "The volume of the Apple II speaker, between 0.0 and 1.0.";
+				};
+				charSet =
+				{
+					Name = "characterset";
+					Description = "The character set in the character generator ROM.";
+				};
+				secondaryVideo =
+				{
+					Name = "secondary video";
+					Description = "Shows the 80 column screen when true, else the 40-column screen. Only works for an Apple ][ or ][+ with an 80-column card.";
+				};
+				textScreen =
+				{
+					Name = "screen text";
+					Description = "All text on the machine's screen, including blank lines and trailing spaces.";
+				};
+				compactTextScreen =
+				{
+					Name = "compact screen text";
+					Description = "The text on the machine's screen; blank lines and trailing spaces are omitted.";
+				};
+				graphicsScreen =
+				{
+					Name = "screen picture";
+					Description = "The picture displayed on the machine's screen.";
+				};
+				screenMode =
+				{
+					Name = "screen mode";
+					Description = "The screen mode of the machine.";
+				};
+				computerType =
+				{
+					Name = "computertype";
+					Description = "The kind of emulated computer.";
+				};
+				printToClipboard =
+				{
+					Name = "clipboard printing";
+					Description = "When true, all printed characters go to the Macintosh clipboard.";
+				};
+				keyboardDelay =
+				{
+					Name = "keyboard delay";
+					Description = "The number of seconds (as a floating point number) to wait between key presses coming from an Applescript. This allows you to slow down the script.";
+				};
+			}; // End Attributes
+		}; // End VIIDocument
+		
+		// VIIDeviceAS
+		VIIDeviceAS =
+		{
+			Name = "device";
+			PluralName = "devices";
+            Description = "A device, connected to the virtual machine.";
+			Attributes =
+			{
+				name =
+				{
+					Name = "name";
+					Description = "The unique name of the device.";
+				};
+				devicetype =
+				{
+					Name = "devicetype";
+					Description = "The kind of device.";
+				};
+                active =
+                {
+                    Name = "active";
+                    Description = "Whether or not the device is active (i.e. the access light is on, or data is being read / written).";
+                };
+			};
+		}; // End VIIDeviceAS
+		
+		// VIIDriveAS
+		VIIDriveAS =
+		{
+			Name = "disk drive";
+            Description = "Either a Disk ][ or an Omnidisk drive.";
+			Attributes =
+			{
+				diskImage =
+				{
+					Name = "disk image";
+					Description = "The POSIX path of the loaded disk image, or an empty string when no disk is loaded.";
+				};
+			};
+		}; // End VIIDriveAS
+
+		// VIICassetteRecorderAS
+		VIICassetteRecorderAS =
+		{
+			Name = "cassette recorder";
+			Description = "The cassette recorder connected to the machine.";
+			Attributes =
+			{
+				tapeFile =
+				{
+					Name = "tape";
+					Description = "The POSIX path of the loaded tape file, or an empty string when no tape is loaded.";
+				};
+			};
+		}; // End VIICassetteRecorderAS
+		
+		// VIIMatrixPrinterAS
+		VIIMatrixPrinterAS =
+		{
+			Name = "matrix printer";
+			Description = "Either an Epson FX-80 or an ImageWriter II.";
+			Attributes =
+			{
+				autoLF =
+				{
+					Name = "autoLF";
+					Description = "When true, the printer adds a linefeed after every carriage return character it receives.";
+				};
+				paperLength =
+				{
+					Name = "paper length";
+					Description = "The length of the fanfold paper, in inches. Is an integer number in the range 2 - 14.";
+				};
+                online =
+                {
+                    Name = "online";
+					Description = "Online / offline state of the printer.";
+                };
+			};
+		}; // End VIIMatrixPrinterAS
+		
+		// VIISimplePrinterAS
+		VIISimplePrinterAS =
+		{
+			Name = "simple printer";
+			Description = "A simple text printer, which writes all output to a text file.";
+			Attributes =
+			{
+				printerFile =
+				{
+					Name = "output file";
+					Description = "The POSIX path of the file with the printed output.";
+				};
+                online =
+                {
+                    Name = "online";
+					Description = "Online / offline state of the printer.";
+                };
+			};
+		};
+		AppleIIMachine =
+		{
+			Name = "AppleII";
+            PluralName = "AppleII's";
+			Description = "Use this class in the \"make\" command to create a standard Apple II.";
+		};
+		AppleIIPlusMachine =
+		{
+			Name = "AppleIIPlus";
+            PluralName = "AppleIIPlus's";
+			Description = "Use this class in the \"make\" command to create a standard Apple II+.";
+		};
+		AppleIIeMachine =
+		{
+			Name = "AppleIIe";
+            PluralName = "AppleIIe's";
+			Description = "Use this class in the \"make\" command to create a standard Apple //e.";
+		};
+		VIIScreenTextAS =
+		{
+			Name = "screentext";
+			Description = "The text on the screen of an emulated machine.";
+			Attributes =
+			{
+				contents =
+				{
+					// Note the use of the word "contents" must be avoided; it is an Applescipt reserved
+					// word that dereferences a reference. The recommendation is to use "content" instead.
+					Name = "content";
+					Description = "The object as one text object.";
+				};
+			};
+		};
+		VIIScreenLineAS =
+		{
+			Name = "line";
+            PluralName = "lines";
+			Description = "One text line on the screen of an emulated machine.";
+		};
+		VIIScreenPictureAS =
+		{
+			Name = "screenpicture";
+			Description = "The graphic representation of the screen of an emulated machine.";
+		};
+	}; // End classes
+    
+   Enumerations =
+	{
+        "SpeedSettings" =
+		{
+			"RegularSpeed" = { Name = "regular"; Description = "The emulation speed is exactly like an original Apple II."; };
+			"HighSpeed" = { Name = "high"; Description = "The speed is as high as possible, but falls back to regular when changing the screen or producing sound."; };
+			"MaximumSpeed" = { Name = "maximum"; Description = "The speed is as high as possible, except when producing sound."; };
+		};
+		
+		"CharacterSets" =
+		{
+			"Latin" = { Name = "latin"; Description = "The character set of the Apple //e computer. It contains upper- and lowercase letters, numbers and special characters."; };
+			"LatinUppercase" = { Name = "latin uppercase"; Description = "The character set of the Apple ][ and Apple ][+ computers. It lacks lowercase letters."; };
+			"Greek" = { Name = "Greek"; Description = "Upper- and lowercase Greek letters."; };
+			"German" = { Name = "German"; Description = "Character set of the German model Apple II."; };
+			"French" = { Name = "French"; Description = "Character set of the French model Apple II."; };
+			"British" = { Name = "British"; Description = "Character set of the British model Apple II."; };
+			"Italian" = { Name = "Italian"; Description = "Character set of the Italian model Apple II."; };
+            "Swedish" = { Name = "Swedish"; Description = "Character set of the Swedish model Apple II."; };
+            "Bulgarian" = { Name = "Bulgarian"; Description = "Character set of the Bulgarian clone Правец-82."; };
+			"Unknown" = { Name = "custom characterset"; Description = "Custom character set."; };
+		};
+		
+		"DeviceTypes" =
+		{
+			"SimplePrinter" = { Name = "text printer"; Description = "Simple text-only printer."; };
+			"DiskII" = { Name = "diskette drive"; Description = "Disk ][ diskette drive."; };
+			"Cassette" = { Name = "cassette recorder"; Description = "cassette recorder"; };
+			"Omnidisk" = { Name = "omnidisk drive"; Description = "Omnidisk hard disk"; };
+			"Epson" = { Name = "Epson FX-80 printer"; Description = "Epson FX-80 printer"; };
+			"ImageWriter" = { Name = "ImageWriter II printer"; Description = "Apple ImageWriter II printer"; };
+			"SerialDevice" = { Name = "serial device"; Description = "Serial device"; };
+		};
+		
+		"SpecialKeys" =
+		{
+			"EscKey" = { Name = "esc"; Description = "Escape key."; };
+			"LeftArrowKey" = { Name = "left arrow"; Description = "Left arrow key."; };
+			"RightArrowKey" = { Name = "right arrow"; Description = "Right arrow key."; };
+			"UpArrowKey" = { Name = "up arrow"; Description = "Up arrow key (Apple //e only)."; };
+			"DownArrowKey" = { Name = "down arrow"; Description = "Down arrow key (Apple //e only)."; };
+		};
+		
+		"ScreenModes" =
+		{
+			"AllText" = { Name = "text40"; Description = "All 40-column text."; };
+			"AllLoRes" = { Name = "lores"; Description = "Low resolution graphics mode."; };
+			"AllHiRes" = { Name = "hires"; Description = "High resolution graphics mode."; };
+			"MixedTextLoRes" = { Name = "mixed text lores"; Description = "Mixed text and low resolution graphics mode."; };
+			"MixedTextHiRes" =  { Name = "mixed text hires"; Description = "Mixed text and high resolution graphics mode."; };
+			"AllDoubleLoRes" =  { Name = "double lores"; Description = "Double low resolution graphics mode."; };
+			"AllDoubleHiRes" =  { Name = "double hires"; Description = "Double high resolution graphics mode."; };
+			"MixedTextDoubleLoRes" =  { Name = "mixed text double lores"; Description = "Mixed text and double low resolution graphics mode."; };
+			"MixedTextDoubleHiRes" =  { Name = "mixed text double hires"; Description = "Mixed text and double high resolution graphics mode."; };
+			"All80ColumnText" = { Name = "text80"; Description = "All 80-column text."; };
+		};
+		
+		"ComputerTypes" =
+		{
+			"AppleIIComputer" = { Name = "AppleII"; Description = "Apple ][."; };
+			"AppleIIPlusComputer" = { Name = "AppleIIPlus"; Description = "Apple ][+."; };
+			"AppleIIeComputer" = { Name = "AppleIIe"; Description = "Apple //e."; };
+		};
+		
+		"LicenseTypes" =
+		{
+			"Evaluation" = { Name = "evaluation"; Description = "Evaluation version."; };
+			"LimitedLicense" = { Name = "limited"; Description = "Limited license."; };
+			"FullLicense" = { Name = "full"; Description = "Full license."; };
+		};
+		
+		"PictureFormats" =
+		{
+			"TIFF" = { Name = "tiff"; Description = "tiff format with lossless LZW compression."; };
+			"PNG" = { Name = "png"; Description = "png format."; };
+		};
+
+        "HiResRenderingTypes" =
+        {
+            "HiResNTSC" = { Name = "NTSC"; Description = "High resolution graphics colors as on an NTSC TV set."; };
+            "HiResRGB" = { Name = "RGB"; Description = "High resolution graphics colors as on an RGB monitor."; };
+        };
+
+	}; // End Enumerations
+
+}

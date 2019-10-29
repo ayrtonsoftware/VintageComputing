@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file name="00_coverscreenshot.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587902</mtime>
+    <size>75402</size>
+    <md5>46e43eb3d82f0ad38f31f9953bea0f3d</md5>
+    <crc32>74aacbc9</crc32>
+    <sha1>9b7043b238981b744552fcb57b09446ef3c62f6a</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="00_coverscreenshot_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>00_coverscreenshot.jpg</original>
+    <mtime>1403587956</mtime>
+    <size>7012</size>
+    <md5>1feda314dae20c6bd3fd6c0e46d41320</md5>
+    <crc32>bb0a4d39</crc32>
+    <sha1>a575ee4a8daa0c96ac6ffe64cf25c49d1f099020</sha1>
+  </file>
+  <file name="a2_asimov_bezare_hr.gif" source="original">
+    <format>Animated GIF</format>
+    <mtime>1403587925</mtime>
+    <size>6912</size>
+    <md5>68988aecb155c2474316972a03909d64</md5>
+    <crc32>2a3ebf53</crc32>
+    <sha1>de1b36d4d79d66e2e0a06a4d733d52431d882fc5</sha1>
+  </file>
+  <file name="a2_asimov_bezare_hr_archive.torrent" source="metadata">
+    <btih>4dffad6024aa8aca3709d465cad47a449a7fc156</btih>
+    <mtime>1475082640</mtime>
+    <size>7341</size>
+    <md5>0a8d5da5bd32bfbec10f6a1700cca275</md5>
+    <crc32>a17425a2</crc32>
+    <sha1>4df59e50a716fd43361ca61111c4508276661eaf</sha1>
+    <format>Archive BitTorrent</format>
+  </file>
+  <file name="a2_asimov_bezare_hr_files.xml" source="original">
+    <format>Metadata</format>
+    <md5>4f9a4a6d12ad572bc5e3f55adb806bb1</md5>
+  </file>
+  <file name="a2_asimov_bezare_hr_meta.sqlite" source="original">
+    <format>Metadata</format>
+    <mtime>1403587945</mtime>
+    <size>16384</size>
+    <md5>d3dc46684d9bd23b9ab05fce5fb1645e</md5>
+    <crc32>6631d506</crc32>
+    <sha1>295a4ee68e9f999d770192816f4abf8402009734</sha1>
+  </file>
+  <file name="a2_asimov_bezare_hr_meta.xml" source="original">
+    <format>Metadata</format>
+    <mtime>1475082640</mtime>
+    <size>4902</size>
+    <md5>3a0b8e12fee55d75d8f1d7967fdfdffc</md5>
+    <crc32>c85a0c5d</crc32>
+    <sha1>b58683309f462769da0ae99d2464078b30d536b2</sha1>
+  </file>
+  <file name="bezare_hr.dsk" source="original">
+    <format>Unknown</format>
+    <mtime>1403576834</mtime>
+    <size>143360</size>
+    <md5>d6ea9548a3f27b0e6c0b1b3dfac892f2</md5>
+    <crc32>55033ef1</crc32>
+    <sha1>bbac524f365c73085b6464df1b6c5f3b85a10a0a</sha1>
+  </file>
+  <file name="bezare_hr_screenshot.gif" source="original">
+    <format>Emulator Screenshot</format>
+    <mtime>1403587934</mtime>
+    <size>345341</size>
+    <md5>643afd863284b0aad6a07bc1a9af49fe</md5>
+    <crc32>96b77f12</crc32>
+    <sha1>7adac0d86c8835baa2894be803b91ab082b1579f</sha1>
+  </file>
+  <file name="screenshot_00.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587903</mtime>
+    <size>64018</size>
+    <md5>87749fe48aecd081c832a94fe4ca02e2</md5>
+    <crc32>29b9f07b</crc32>
+    <sha1>e4dc887c6648cf3d43dbca1b99f162f28ce11100</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_00_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_00.jpg</original>
+    <mtime>1403587955</mtime>
+    <size>5121</size>
+    <md5>15548861891aba131aa7c0ef5647d901</md5>
+    <crc32>b72ae134</crc32>
+    <sha1>5c95f18a5e6eca39fd536c7fb8cff2f7365097b8</sha1>
+  </file>
+  <file name="screenshot_01.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587905</mtime>
+    <size>64975</size>
+    <md5>694ff9829d27689900ebfc05f4f6b001</md5>
+    <crc32>a5c6b79b</crc32>
+    <sha1>9d3750dac3b408573b975cc523d141d500308aa7</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_01_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_01.jpg</original>
+    <mtime>1403587957</mtime>
+    <size>5103</size>
+    <md5>b603f88c85e8fa8211d642193424dc18</md5>
+    <crc32>875f6584</crc32>
+    <sha1>95832c26ad7cf86c5e65eb8483d0296cd7987480</sha1>
+  </file>
+  <file name="screenshot_02.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587906</mtime>
+    <size>68835</size>
+    <md5>bcd71fec2fce02170a2ebc23d6eeb3b4</md5>
+    <crc32>763cca86</crc32>
+    <sha1>91544c56d4217e40af0465a6b4929f6edc0b359c</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_02_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_02.jpg</original>
+    <mtime>1403587954</mtime>
+    <size>5210</size>
+    <md5>9517995c78c2fbf89fddaf65dde58d36</md5>
+    <crc32>12437404</crc32>
+    <sha1>5daf005c419669f10ee165d73727451d555797ca</sha1>
+  </file>
+  <file name="screenshot_03.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587908</mtime>
+    <size>69825</size>
+    <md5>6e9d3e030286b6b340fb5a88ea36d8cb</md5>
+    <crc32>c30c9bee</crc32>
+    <sha1>10cc27989d13c8293ebb34824dafc9c07c889c42</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_03_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_03.jpg</original>
+    <mtime>1403587955</mtime>
+    <size>5237</size>
+    <md5>ae6f69a62e67549410e7953e8c0f5cbc</md5>
+    <crc32>80db6854</crc32>
+    <sha1>ae60f9f7921633370efa6b59640293bc5ea3578f</sha1>
+  </file>
+  <file name="screenshot_04.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587909</mtime>
+    <size>69562</size>
+    <md5>a8dc734bbff0cbdddfac775fd2e5c13d</md5>
+    <crc32>6004c05b</crc32>
+    <sha1>a20fd5b51a14e95c24a1571c9aa432f83f566a71</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_04_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_04.jpg</original>
+    <mtime>1403587956</mtime>
+    <size>5170</size>
+    <md5>21a88beeb51baef9ba7b09e392bf2746</md5>
+    <crc32>b08fc2a8</crc32>
+    <sha1>b6380983b10c2d438b2085f0cfa7ff8ea30f9342</sha1>
+  </file>
+  <file name="screenshot_05.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587910</mtime>
+    <size>66576</size>
+    <md5>03e03894a709929edbda0616116b8e03</md5>
+    <crc32>e9c59138</crc32>
+    <sha1>685907671b44e0eb12a23646818f4fd50a0955bc</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_05_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_05.jpg</original>
+    <mtime>1403587956</mtime>
+    <size>5133</size>
+    <md5>36dfc7dca712464b477d2dcb1abcad05</md5>
+    <crc32>31347063</crc32>
+    <sha1>d640e01bb85b904e4a471643b51da9b72a984b15</sha1>
+  </file>
+  <file name="screenshot_06.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587912</mtime>
+    <size>64504</size>
+    <md5>f7ef059fa6ce73d8defb3ff3e710eba0</md5>
+    <crc32>7c7160f9</crc32>
+    <sha1>73ab6a8697e935db145652266a57414289ce5ed6</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_06_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_06.jpg</original>
+    <mtime>1403587957</mtime>
+    <size>5059</size>
+    <md5>8c4fd813daa90103213989e8ff8c5ed7</md5>
+    <crc32>a9f161ed</crc32>
+    <sha1>3f39d6f2a8a009acddea5114bdd8b99af9820368</sha1>
+  </file>
+  <file name="screenshot_07.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587913</mtime>
+    <size>65403</size>
+    <md5>89f121505987138b8288fe4372722ffb</md5>
+    <crc32>cb94af90</crc32>
+    <sha1>2645c6f9c012c58fe7002afb519949ab95a8856c</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_07_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_07.jpg</original>
+    <mtime>1403587959</mtime>
+    <size>5085</size>
+    <md5>81b3f538a89bf268104682effb80d758</md5>
+    <crc32>1e8bfdec</crc32>
+    <sha1>2dbba264ab40b0b48b8e88bf787497dad69f23a0</sha1>
+  </file>
+  <file name="screenshot_08.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587914</mtime>
+    <size>65276</size>
+    <md5>47cd621bcefd59ed9da4f91b9e67af0f</md5>
+    <crc32>c316e83c</crc32>
+    <sha1>89e5c5a70ef63aceb58a0b51e701f02aec9bcf84</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_08_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_08.jpg</original>
+    <mtime>1403587958</mtime>
+    <size>5084</size>
+    <md5>1f35d430e80e4ea286d462bc39663ad5</md5>
+    <crc32>12621843</crc32>
+    <sha1>8623a6ca1aa72ccae8c38203403f51c63c4986e4</sha1>
+  </file>
+  <file name="screenshot_09.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587915</mtime>
+    <size>65827</size>
+    <md5>08355e4cc3a7d7a8503718c1205d3aad</md5>
+    <crc32>d8b8bced</crc32>
+    <sha1>b92fa1a2fcd15d25b4dccc07bb63ec9c571625a4</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_09_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_09.jpg</original>
+    <mtime>1403587960</mtime>
+    <size>5056</size>
+    <md5>4084d380459a80e0ffd9fed81be932f1</md5>
+    <crc32>5e17179c</crc32>
+    <sha1>4953794c559142fc7fbc654e606b10223bf61ef9</sha1>
+  </file>
+  <file name="screenshot_10.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587917</mtime>
+    <size>57900</size>
+    <md5>7236426c4d5743aa49751d445598084b</md5>
+    <crc32>430e7b78</crc32>
+    <sha1>a1e750e03c2c487499398d5f389f508c72aefdda</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_10_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_10.jpg</original>
+    <mtime>1403587958</mtime>
+    <size>4945</size>
+    <md5>67626a7a97b4e88d71576a39bffbf2b5</md5>
+    <crc32>9221409b</crc32>
+    <sha1>6fb8f12f5bb1cedf02315f4f1b1ea45ebe2defa0</sha1>
+  </file>
+  <file name="screenshot_11.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587918</mtime>
+    <size>61249</size>
+    <md5>32bc0136b19f7b44a21ec4728bdb540d</md5>
+    <crc32>203cc217</crc32>
+    <sha1>9d0bc76fbbebb2ad53e811f04c9da9d1623c4399</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_11_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_11.jpg</original>
+    <mtime>1403587958</mtime>
+    <size>4975</size>
+    <md5>f68804b6a8594a2ba330567b8de2a745</md5>
+    <crc32>c72fbb17</crc32>
+    <sha1>e8e3fb34bc0d528e97b929292fe91f0912171204</sha1>
+  </file>
+  <file name="screenshot_12.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587919</mtime>
+    <size>59745</size>
+    <md5>a9c24b4556aef381492f303f4bdf3955</md5>
+    <crc32>f6082cb2</crc32>
+    <sha1>e0ff83003236b1290cf5ff08ac31136abaa8484f</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_12_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_12.jpg</original>
+    <mtime>1403587959</mtime>
+    <size>4946</size>
+    <md5>672eb97096db14b829f36d5dccccc66e</md5>
+    <crc32>a9de4dd3</crc32>
+    <sha1>8690293f953bcf44764e8e8a93278d3899f8aaa3</sha1>
+  </file>
+  <file name="screenshot_13.jpg" source="original">
+    <format>JPEG</format>
+    <mtime>1403587920</mtime>
+    <size>58819</size>
+    <md5>3c42135b8f683aa47cdc6299f69ca737</md5>
+    <crc32>7eea6b62</crc32>
+    <sha1>d8f961713dcc3085a368cd53a29edcca334186f0</sha1>
+    <rotation>0</rotation>
+  </file>
+  <file name="screenshot_13_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>screenshot_13.jpg</original>
+    <mtime>1403587959</mtime>
+    <size>4956</size>
+    <md5>8a9f75bca742273132f87735e961b5af</md5>
+    <crc32>9979a95a</crc32>
+    <sha1>e610888bf217c9a60f00221d108defcd5ca0ab87</sha1>
+  </file>
+</files>
